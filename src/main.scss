@@ -1,0 +1,13 @@
+@import './assets/scss/variables';
+@import './components/header/header';
+@import './components/footer/footer';
+@import './components/card/card';
+
+body {
+    margin: 0;
+    font-size: 16px;
+    font-family: $font-global;
+    background-color: $color-layout;
+    color: $color-text;
+    padding: 20px;
+}

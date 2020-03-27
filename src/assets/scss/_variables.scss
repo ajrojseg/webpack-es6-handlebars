@@ -1,0 +1,27 @@
+/*
+ Abstracts variables, colors, fonts, font-sizes
+*/
+
+/*
+  Fonts
+*/
+
+$font-global: "PT Sans", sans-serif;
+
+/*
+  Colors & BG Colors
+*/
+$color-layout: #262728;
+$color-title: #FFFFFF;
+$color-text: #D8D8D8;
+$color-description: #A4A6A8;
+
+/*
+  Font Sizes
+*/
+$font-size-small: 0.75rem; // 12px
+$font-size-summary: 0.875rem; // 14px
+$font-size-regular: 1rem; // 16px
+$font-size-content: 1.13rem; // 18px
+$font-size-medium: 1.62rem; // 26px
+$font-size-title: 3.625rem // 58px
