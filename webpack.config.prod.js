@@ -8,25 +8,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
   mode: 'production',
   entry: {
-    main: './src/index.js',
-  },
-  module: {
-    rules: [
-      {
-        test: /\.html$/,
-        use: ['html-loader'],
-      },
-      {
-        test: /\.(svg|png|jpg|gif)$/,
-        use: {
-          loader: 'file-loader',
-          options: {
-            name: '[name].[hash].[ext]',
-            outputPath: 'imgs',
-          },
-        },
-      },
-    ],
+    main: './src/index.ts',
   },
   output: {
     filename: '[name].[contentHash].bundle.js',
@@ -65,6 +47,24 @@ module.exports = {
         ],
       },
       { test: /\.handlebars$/, loader: 'handlebars-loader' },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.(svg|png|jpg|gif)$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[name].[hash].[ext]',
+            outputPath: 'imgs',
+          },
+        },
+      },
     ],
+  },
+  resolve: {
+    extensions: [ '.tsx', '.ts', '.js' ],
   },
 }

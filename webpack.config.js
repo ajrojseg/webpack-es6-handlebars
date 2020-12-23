@@ -4,7 +4,7 @@ const path = require('path')
 module.exports = {
   mode: "development",
   entry: {
-    main: './src/index.js'
+    main: './src/index.ts'
   },
   output: {
     filename: "[name].bundle.js",
@@ -39,7 +39,15 @@ module.exports = {
           }
         }
       },
-      { test: /\.handlebars$/, loader: "handlebars-loader" }
+      { test: /\.handlebars$/, loader: "handlebars-loader" },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
     ]
-  }
+  },
+  resolve: {
+    extensions: [ '.tsx', '.ts', '.js', '.handlebars'],
+  },
 }

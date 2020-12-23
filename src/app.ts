@@ -1,4 +1,6 @@
+// @ts-ignore
 import headerController from './components/header/header.controller'
+// @ts-ignore
 import footerController from './components/footer/footer.controller'
 import homeController from './views/home.controller'
 

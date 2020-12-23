@@ -1,3 +1,4 @@
+// @ts-ignore
 import Card from '../components/card/card.handlebars'
 
 const cardList = [
@@ -10,7 +11,7 @@ const homeController = {
   // Views usually render a group of components
   // This is how you can dynamically insert data to a component
   async render() {
-    const content = document.getElementById('card-wrapper')
+    const content = document.getElementById('card-wrapper') as HTMLDivElement
 
     content.innerHTML = Card({
       cardList
