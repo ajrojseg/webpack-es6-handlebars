@@ -1,5 +1,5 @@
 // @ts-ignore
-import Card from '../components/card/card.handlebars'
+import Home from './home.handlebars'
 
 const cardList = [
   { title: 'First Title', description: 'First Description' },
@@ -7,21 +7,17 @@ const cardList = [
   { title: 'Third Title', description: 'Third Description' },
 ]
 
-const homeController = {
+export class HomeController {
   // Views usually render a group of components
   // This is how you can dynamically insert data to a component
-  async render() {
+  private static async render() {
     const content = document.getElementById('card-wrapper') as HTMLDivElement
-
-    content.innerHTML = Card({
-      cardList
-    })
+    content.innerHTML = Home({ cardList })
 
     return
-  },
-  async init() {
+  }
+
+  public static async init() {
     return await this.render()
   }
 }
-
-export default homeController

@@ -1,3 +1,7 @@
 <h1>FROM HOME VIEW INSERTING A CARD COMPONENT</h1>
 
-<div id="card-wrapper"></div>
+<div id="card-wrapper">
+    {{#each cardList}}
+        {{> ../components/card/card this}}
+    {{/each}}
+</div>
