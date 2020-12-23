@@ -4,6 +4,9 @@
   "private": true,
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "v12.18.3"
+  },
   "scripts": {
     "start": "webpack-dev-server  --config webpack.config.js --open",
     "build": "webpack --config webpack.config.prod.js"
