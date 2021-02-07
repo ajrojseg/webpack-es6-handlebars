@@ -35,6 +35,11 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.handlebars$/,
+        loader: 'handlebars-loader',
+        query: { inlineRequires: '/img/' },
+      },
+      {
         test: /\.html$/,
         use: ['html-loader'],
       },
@@ -46,25 +51,30 @@ module.exports = {
           'sass-loader', //1. Turns sass into css
         ],
       },
-      { test: /\.handlebars$/, loader: 'handlebars-loader' },
       {
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
       },
       {
-        test: /\.(svg|png|jpg|gif)$/,
-        use: {
-          loader: 'file-loader',
-          options: {
-            name: '[name].[hash].[ext]',
-            outputPath: 'imgs',
-          },
+        test: /\.(png|svg|jpg|gif|pdf)$/,
+        include: [path.resolve(__dirname, 'src/assets/img')],
+        loader: 'file-loader',
+        options: {
+          outputPath: 'images/',
+        },
+      },
+      {
+        test: /\.(woff(2)?|ttf|otf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        include: [path.resolve(__dirname, 'src/assets/fonts')],
+        loader: 'file-loader',
+        options: {
+          outputPath: 'fonts/',
         },
       },
     ],
   },
   resolve: {
-    extensions: [ '.tsx', '.ts', '.js' ],
+    extensions: ['.tsx', '.ts', '.js', '.png'],
   },
 }
